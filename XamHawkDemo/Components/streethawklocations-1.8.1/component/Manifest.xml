@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<component format="1" id="streethawklocations">
+  <name>StreetHawk Locations</name>
+  <publisher>Streethawk</publisher>
+  <publisher-url>http://www.streethawk.com</publisher-url>
+  <version>1.8.1</version>
+  <summary>Run campaigns based on real time locations of user.</summary>
+  <samples>
+    <sample id="SHSample.IOS">
+      <name>ios Sample.</name>
+      <summary>Demonstrates Streethawk Location Component on iOS.</summary>
+    </sample>
+    <sample id="XamHawkLocations">
+      <name>Android Sample.</name>
+      <summary>Demonstrates Streethawk Location Component on Android</summary>
+    </sample>
+  </samples>
+</component>
