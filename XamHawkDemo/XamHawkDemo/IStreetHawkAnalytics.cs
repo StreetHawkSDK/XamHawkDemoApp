@@ -1,21 +1,18 @@
 ﻿using System;
-namespace XamHawkDemo
+
+namespace StreetHawkCrossplatform
 {
 	public delegate void OnInstallRegisteredCallback(string installId);
+	public delegate void OnOpenUrlHandler(string openUrl);
+
 	public interface IStreetHawkAnalytics
 	{
 
 		/// <summary>
 		/// Sets the app key.
 		/// </summary>
-		/// <returns>The app key.</returns>
 		/// <param name="appKey">App key.</param>
 		void SetAppKey(string appKey);
-
-		/// <summary>
-		/// Init StreeHawk
-		/// </summary>
-		void Init();
 
 		/// <summary>
 		/// Gets the app key.
@@ -24,60 +21,37 @@ namespace XamHawkDemo
 		string GetAppKey();
 
 		/// <summary>
-		/// Gets the SHL ibrary version.
+		/// Sets whether enable console log. If enabled the SDK will prints log in XCode or Android Studio console.
 		/// </summary>
-		/// <returns>The StreetHawk's library version.</returns>
-		string GetSHLibraryVersion();
+		/// <param name="isEnable">Flag to indicate whether enable.</param>
+		void SetEnableLogs(bool isEnable);
 
 		/// <summary>
-		/// Tags the user language.
+		/// Gets the flag whether enable console log. If enabled the SDK will prints log in XCode or Android Studio console.
 		/// </summary>
-		/// <returns>The user language.</returns>
-		void TagUserLanguage(string language);
-
+		/// <returns>The flag of whether enable.</returns>
+		bool GetEnableLogs();
 
 		/// <summary>
-		/// Displaies the badge. Note that for Android, the API depends on home screen launcher and badge wont be displayed on non supported devices.
+		/// Init StreeHawk.
 		/// </summary>
-		/// <returns>The badge.</returns>
-		/// <param name="badgeCount">Badge count.</param>
-		void DisplayBadge(int badgeCount);
+		void Init();
 
 		/// <summary>
-		/// Notifies the view entered by the user.
+		/// Tags user's unique identifier (sh_cuid).
 		/// </summary>
-		/// <returns>The view enter.</returns>
-		/// <param name="viewName">View name.</param>
-		void NotifyViewEnter(string viewName);
-
-		/// <summary>
-		/// Notifies the view exit.
-		/// </summary>
-		/// <returns>The view exit.</returns>
-		/// <param name="viewName">View name.</param>
-		void NotifyViewExit(string viewName);
-
-
-		/// <summary>
-		/// Sends the simple feedback.
-		/// </summary>
-		/// <returns>The simple feedback.</returns>
-		/// <param name="title">Title for the feedback.</param>
-		/// <param name="message">Message for the feedback.</param>
-		void SendSimpleFeedback(string title, string message);
-
-		/// <summary>
-		/// Tags user's unique identifier.
-		/// </summary>
-		/// <returns>The cuid.</returns>
 		/// <param name="cuid">Cuid.</param>
 		void TagCuid(string cuid);
 
+		/// <summary>
+		/// Tags the user language (sh_language).
+		/// </summary>
+		/// <param name="language">The user language.</param>
+		void TagUserLanguage(string language);
 
 		/// <summary>
 		/// Tags numeric event inside the app.
 		/// </summary>
-		/// <returns>The numeric.</returns>
 		/// <param name="key">Key for the event.</param>
 		/// <param name="value">Value for the venet.</param>
 		void TagNumeric(string key, double value);
@@ -85,7 +59,6 @@ namespace XamHawkDemo
 		/// <summary>
 		/// Tags string event inside the app.
 		/// </summary>
-		/// <returns>The string.</returns>
 		/// <param name="key">Key for the event.</param>
 		/// <param name="value">Value for the event.</param>
 		void TagString(string key, string value);
@@ -93,44 +66,65 @@ namespace XamHawkDemo
 		/// <summary>
 		/// Tags datetime event for the app.
 		/// </summary>
-		/// <returns>The date time.</returns>
-		/// <param name="key">Key.</param>
-		/// <param name="value">Value.</param>
-		void TagDateTime(string key, string value);
+		/// <param name="key">Key for the event.</param>
+		/// <param name="value">Value for the event.</param>
+		void TagDateTime(string key, DateTime value);
 
 		/// <summary>
 		/// Increment the value of a previous tag by 1. If the tag is not present then API will create the Tag with value 1.
 		/// </summary>
-		/// <returns>The tag.</returns>
-		/// <param name="key">Key.</param>
+		/// <param name="key">Key for the event.</param>
 		void IncrementTag(string key);
 
 		/// <summary>
 		/// Increments the tag with given value.  If the tag is not present then API will create the Tag with value given.
 		/// </summary>
-		/// <returns>The tag.</returns>
-		/// <param name="key">Key.</param>
-		/// <param name="incrValue">Incr value.</param>
+		/// <param name="key">Key for the event.</param>
+		/// <param name="incrValue">Increase value.</param>
 		void IncrementTag(string key, int incrValue);
 
 		/// <summary>
 		/// Removes the tag from StreetHawk server.
 		/// </summary>
-		/// <returns>The tag.</returns>
-		/// <param name="key">Key.</param>
+		/// <param name="key">Key for the event.</param>
 		void RemoveTag(string key);
 
 		/// <summary>
-		/// Gets the current formatted date time.
+		/// Notifies the view entered by the user.
+		/// </summary>
+		/// <param name="viewName">View name.</param>
+		void NotifyViewEnter(string viewName);
+
+		/// <summary>
+		/// Notifies the view exit by the user.
+		/// </summary>
+		/// <param name="viewName">View name.</param>
+		void NotifyViewExit(string viewName);
+
+		/// <summary>
+		/// Sends the simple feedback.
+		/// </summary>
+		/// <param name="title">Title for the feedback.</param>
+		/// <param name="message">Message for the feedback.</param>
+		void SendSimpleFeedback(string title, string message);
+
+		/// <summary>
+		/// Gets the native SDK library version.
+		/// </summary>
+		/// <returns>The StreetHawk's library version.</returns>
+		string GetSHLibraryVersion();
+
+		/// <summary>
+		/// Gets the current formatted date time. It's UTC and formatted as yyyy-MM-dd HH:mm:ss.
 		/// </summary>
 		/// <returns>The current formatted date time.</returns>
 		string GetCurrentFormattedDateTime();
 
 		/// <summary>
-		/// Gets the formatted date time for given time in milies.
+		/// Gets the formatted date time for given time since 1970 in seconds. It's UTC and formatted as yyyy-MM-dd HH:mm:ss.
 		/// </summary>
 		/// <returns>The formatted date time.</returns>
-		/// <param name="time">Time.</param>
+		/// <param name="time">Seconds since 1970.</param>
 		string GetFormattedDateTime(long time);
 
 		/// <summary>
@@ -139,26 +133,56 @@ namespace XamHawkDemo
 		/// <returns>The install identifier.</returns>
 		string GetInstallId();
 
-		/*iOS only functions*/
-
-
-		/*Android only functions*/
-
 		/// <summary>
 		/// Sets the advertisement identifier.
 		/// </summary>
-		/// <returns>The advertisement identifier.</returns>
+		/// <param name="id">The advertisement identifier.</param>
 		void SetAdvertisementId(string id);
+
+		/// <summary>
+		/// Gets the advertisement identifier.
+		/// </summary>
+		/// <returns>The advertisement identifier.</returns>
+		string GetAdvertisementId();
 
 		/// <summary>
 		/// Callback function which will be called when install is successfully registered with StreetHawk server.
 		/// </summary>
-		/// <returns>Name of callback function.</returns>
-		/// <param name="cb">Cb.</param>
+		/// <param name="cb">Callback function.</param>
 		void RegisterForInstallEvent(OnInstallRegisteredCallback cb);
 
-		void DisplayLog(string tag, string logline);
+		/// <summary>
+		/// Callback function happen when open url delegate trigger.
+		/// </summary>
+		/// <param name="cb">Callback function.</param>
+		void shDeeplinking(OnOpenUrlHandler cb);
 
+		/*iOS only functions*/
+
+		/**
+		 * iOS specific.
+		 * Property to get or set iTunes Id string. 
+		 */
+		/// <summary>
+		/// Sets iTunes Id of this App. It's the unique number for an App in AppStore. This is used for rate or upgrade App.
+		/// </summary>
+		/// <param name="iTunesId">iTunes Id string.</param>
+		void SetsiTunesId(string iTunesId);
+
+		/// <summary>
+		/// Gets iTunes Id of this App. It's the unique number for an App in AppStore. This is used for rate or upgrade App.
+		/// </summary>
+		/// <return>iTunes Id string.</return>
+		string GetsiTunesId();
+
+		/*Android only functions*/
+
+		/// <summary>
+		/// Displaies the badge. Note that for Android, the API depends on home screen launcher and badge wont be displayed on non supported devices.
+		/// </summary>
+		/// <returns>The badge.</returns>
+		/// <param name="badgeCount">Badge count.</param>
+		void DisplayBadge(int badgeCount);
 	}
 }
 

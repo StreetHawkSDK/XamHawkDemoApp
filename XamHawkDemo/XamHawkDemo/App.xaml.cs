@@ -1,5 +1,7 @@
 ﻿using Xamarin.Forms;
 
+using StreetHawkCrossplatform;
+
 namespace XamHawkDemo
 {
 	public partial class App : Application
@@ -18,12 +20,6 @@ namespace XamHawkDemo
 			DependencyService.Get<IStreetHawkAnalytics>().Init();
 
 		}
-
-		private void share(string url)
-		{
-			DependencyService.Get<IStreetHawkAnalytics>().DisplayLog("Anurag",url);
-		}
-
 
 		protected override void OnSleep()
 		{
