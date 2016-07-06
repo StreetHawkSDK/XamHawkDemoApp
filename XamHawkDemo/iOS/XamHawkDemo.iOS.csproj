@@ -148,7 +148,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="StreetHawkAnalytics.cs" />
+    <Compile Include="StreetHawkIOS\StreetHawkAnalytics.cs" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="streethawkanalytics">
