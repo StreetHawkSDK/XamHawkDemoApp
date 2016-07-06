@@ -5,7 +5,7 @@ using Xamarin.Forms;
 using StreetHawkCrossplatform;
 using StreethawkIOS.Core;
 
-[assembly: Dependency(typeof(IStreetHawkAnalytics))]
+[assembly: Dependency(typeof(StreetHawkAnalytics))]
 
 namespace StreetHawkCrossplatform
 {

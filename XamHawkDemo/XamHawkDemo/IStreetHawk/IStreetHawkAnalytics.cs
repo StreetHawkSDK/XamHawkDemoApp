@@ -7,7 +7,6 @@ namespace StreetHawkCrossplatform
 
 	public interface IStreetHawkAnalytics
 	{
-
 		/// <summary>
 		/// Sets the app key.
 		/// </summary>
