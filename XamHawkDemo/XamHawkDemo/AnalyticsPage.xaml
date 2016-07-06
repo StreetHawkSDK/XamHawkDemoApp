@@ -1,5 +1,41 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamHawkDemo.AnalyticsPage">
 	<ContentPage.Content>
+		<TableView>
+            <TableRoot>
+                <TableSection Title="Tag Key and Value">
+                    <EntryCell x:Name="textboxTagKey" Label="Key:" Keyboard="Text" XAlign="Center" Placeholder="mandatory string value" />
+                    <EntryCell x:Name="textboxTagValue" Label="Value:" Keyboard="Text" XAlign="Center" Placeholder="mandatory string/numeric/datetime value" />
+                    <ViewCell>                    	
+                    	<Button Text="Send" Clicked="buttonTagKeyValueClick" />                        
+                    </ViewCell>
+                </TableSection>
+                <TableSection Title="Tag Cuid">                    
+                    <EntryCell x:Name="textboxTagCuid" Label="Cuid:" Keyboard="Text" XAlign="Center" Placeholder="mandatory string value" />
+                    <ViewCell>                    	
+                    	<Button Text="Send" Clicked="buttonTagCuidClick" />                        
+                    </ViewCell>
+                </TableSection>
+                <TableSection Title="Tag Language">                    
+                    <EntryCell x:Name="textboxTagLanguage" Label="Language:" Keyboard="Text" XAlign="Center" Placeholder="mandatory string value" />
+                    <ViewCell>                    	
+                    	<Button Text="Send" Clicked="buttonTagLanguageClick" />                        
+                    </ViewCell>
+                </TableSection>
+                <TableSection Title="Increment Tag">                    
+                    <EntryCell x:Name="textboxTagIncrementKey" Label="Key:" Keyboard="Text" XAlign="Center" Placeholder="mandatory string key" />
+                    <EntryCell x:Name="textboxTagIncrementValue" Label="Number:" Keyboard="Text" XAlign="Center" Placeholder="optional number, 1 by default" />
+                    <ViewCell>                    	
+                    	<Button Text="Send" Clicked="buttonTagIncrementClick" />                        
+                    </ViewCell>
+                </TableSection>
+                <TableSection Title="Delete Tag">                    
+                    <EntryCell x:Name="textboxTagDeleteKey" Label="Key:" Keyboard="Text" XAlign="Center" Placeholder="mandatory string key" />
+                    <ViewCell>                    	
+                    	<Button Text="Send" Clicked="buttonTagDeleteClick" />                        
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
 	</ContentPage.Content>
 </ContentPage>
