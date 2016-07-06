@@ -41,13 +41,13 @@
       <DependentUpon>XamHawkDemoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IStreetHawkAnalytics.cs" />
-    <Compile Include="IStreetHawkPush.cs" />
-    <Compile Include="IStreetHawkGrowth.cs" />
-    <Compile Include="IStreetHawkBeacon.cs" />
-    <Compile Include="IStreetHawkGeofence.cs" />
-    <Compile Include="IStreetHawkLocations.cs" />
-    <Compile Include="IStreetHawkFeeds.cs" />
+    <Compile Include="IStreetHawk\IStreetHawkAnalytics.cs" />
+    <Compile Include="IStreetHawk\IStreetHawkBeacon.cs" />
+    <Compile Include="IStreetHawk\IStreetHawkFeeds.cs" />
+    <Compile Include="IStreetHawk\IStreetHawkGeofence.cs" />
+    <Compile Include="IStreetHawk\IStreetHawkGrowth.cs" />
+    <Compile Include="IStreetHawk\IStreetHawkLocations.cs" />
+    <Compile Include="IStreetHawk\IStreetHawkPush.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
