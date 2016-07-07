@@ -126,7 +126,7 @@ namespace StreetHawkCrossplatform
 			SHApp.instance().registerEventCallBack = new StreethawkIOS.Core.SHInstallRegisterHandler(cb);
 		}
 
-		public void shDeeplinking(OnOpenUrlHandler cb)
+		public void RegisterForDeeplinkURL(RegisterForDeeplinkURLCallback cb)
 		{
 			SHApp.instance().shDeeplinking = delegate (NSUrl openUrl)
 			   {

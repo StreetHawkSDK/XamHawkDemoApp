@@ -61,7 +61,7 @@ namespace XamHawkDemo
 			});
 
 			//Optional: callback when open url.
-			DependencyService.Get<IStreetHawkAnalytics>().shDeeplinking( delegate (string openUrl)
+			DependencyService.Get<IStreetHawkAnalytics>().RegisterForDeeplinkURL( delegate (string openUrl)
 			{
 				Device.BeginInvokeOnMainThread(() =>
 					{

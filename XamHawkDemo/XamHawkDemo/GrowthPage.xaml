@@ -1,5 +1,24 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamHawkDemo.GrowthPage">
 	<ContentPage.Content>
+		<TableView>
+            <TableRoot>
+            	<TableSection>
+            		<EntryCell x:Name="textboxCampaign" Label="Campaign:" Keyboard="Text" XAlign="Center" Placeholder="e.g. Book" />
+            		<EntryCell x:Name="textboxSource" Label="Source:" Keyboard="Text" XAlign="Center" Placeholder="e.g. Email" />
+            		<EntryCell x:Name="textboxMedium" Label="Medium:" Keyboard="Text" XAlign="Center" Placeholder="e.g. cpc" />
+            		<EntryCell x:Name="textboxTerm" Label="Term:" Keyboard="Text" XAlign="Center" Placeholder="keyword for this share" />
+            		<EntryCell x:Name="textboxDeeplinking" Label="Deeplinking:" Keyboard="Url" XAlign="Center" Placeholder="Deeplinking url" />
+            		<EntryCell x:Name="textboxDefaultUrl" Label="Default Url:" Keyboard="Url" XAlign="Center" Placeholder="Fallback url" />
+            		<EntryCell x:Name="textboxContent" Label="Content:" Keyboard="Text" XAlign="Center" Placeholder="Content of this share" />
+            		<ViewCell>
+            			<Button Text="Share and Get Callback" Clicked="buttonSubmitCallbackClick" />
+            		</ViewCell>
+            		<ViewCell>
+            			<Button Text="Share by Predefined Channels" Clicked="buttonSubmitChannelClick" />
+            		</ViewCell>
+            	</TableSection>
+            </TableRoot>
+        </TableView>
 	</ContentPage.Content>
 </ContentPage>

@@ -2,8 +2,15 @@
 
 namespace StreetHawkCrossplatform
 {
+	/// <summary>
+	/// Register for install successfully callback.
+	/// </summary>
 	public delegate void OnInstallRegisteredCallback(string installId);
-	public delegate void OnOpenUrlHandler(string openUrl);
+
+	/// <summary>
+	/// Register for callback to receive deeplink url for differed deeplinking in cross platforms.
+	/// </summary>
+	public delegate void RegisterForDeeplinkURLCallback(string url);
 
 	public interface IStreetHawkAnalytics
 	{
@@ -151,10 +158,10 @@ namespace StreetHawkCrossplatform
 		void RegisterForInstallEvent(OnInstallRegisteredCallback cb);
 
 		/// <summary>
-		/// Callback function happen when open url delegate trigger.
+		/// Registers for deeplink URL.
 		/// </summary>
-		/// <param name="cb">Callback function.</param>
-		void shDeeplinking(OnOpenUrlHandler cb);
+		/// <param name="cb">Callback for deeplink URL.</param>
+		void RegisterForDeeplinkURL(RegisterForDeeplinkURLCallback cb);
 
 		/*iOS only functions*/
 
