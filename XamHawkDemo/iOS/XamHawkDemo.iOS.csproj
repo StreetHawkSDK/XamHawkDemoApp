@@ -150,6 +150,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="StreetHawkIOS\StreetHawkAnalytics.cs" />
     <Compile Include="StreetHawkIOS\StreetHawkGrowth.cs" />
+    <Compile Include="StreetHawkIOS\StreetHawkPush.cs" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="streethawkanalytics">

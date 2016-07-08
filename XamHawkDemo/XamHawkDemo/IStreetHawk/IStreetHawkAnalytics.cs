@@ -165,10 +165,6 @@ namespace StreetHawkCrossplatform
 
 		/*iOS only functions*/
 
-		/**
-		 * iOS specific.
-		 * Property to get or set iTunes Id string. 
-		 */
 		/// <summary>
 		/// Sets iTunes Id of this App. It's the unique number for an App in AppStore. This is used for rate or upgrade App.
 		/// </summary>

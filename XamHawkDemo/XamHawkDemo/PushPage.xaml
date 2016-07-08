@@ -1,5 +1,57 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamHawkDemo.PushPage">
 	<ContentPage.Content>
+		<TableView>
+            <TableRoot>
+            	<TableSection Title="Delay Notification Permission (iOS Specific)">            		
+            		<ViewCell>
+            			<Button x:Name="buttonEnableService" Text="Unknown" Clicked="buttonEnableServiceClick" />
+            		</ViewCell>
+            	</TableSection>
+            	<TableSection Title="GCM (Android Specific)">            		            		
+            		<EntryCell x:Name="textboxGCM" Label="Set GCM Id:" Placeholder="GCM Id String" />
+            		<ViewCell>
+            			<Button Text="Set GCM" Clicked="buttonGCMClick" />
+            		</ViewCell>
+            	</TableSection>
+            	<TableSection Title="Force to Notification Bar (Android Specific)">
+            		<ViewCell>
+            			<Button Text="Force Push to Notification Bar" Clicked="buttonForceToBarClick" />
+            		</ViewCell>
+            	</TableSection>
+            	<TableSection Title="Use Custom Dialog (Android Specific)">
+            		<SwitchCell x:Name="switchUseCustomDialog" Text="Set Use Custom Dialog:" On="false" />
+            		<ViewCell>
+            			<Button Text="Perform Setup" Clicked="buttonUseCustomDialogClick" />
+            		</ViewCell>
+            	</TableSection>
+            	<TableSection Title="Alert Settings">            		            		
+            		<EntryCell x:Name="textboxAlertSettings" Label="Pause Alert in X minutes:" Placeholder="minutes number" />
+            		<ViewCell>
+            			<Button Text="Set Alert Time" Clicked="buttonAlertSettingsClick" />
+            		</ViewCell>
+            	</TableSection>
+            	<TableSection Title="Interactive Pair Buttons">            		            		
+            		<EntryCell x:Name="textboxTitle1" Label="Title for pair 1:" Placeholder="mandatory title" />
+            		<EntryCell x:Name="textboxButtonPos1" Label="Button result 1 for pair 1:" Placeholder="mandatory button text" />
+            		<EntryCell x:Name="textboxIconPos1" Label="Icon with Button(1) (Android):" Placeholder="optional icon text" />
+            		<EntryCell x:Name="textboxButtonNeg1" Label="Button result -1 for pair 1:" Placeholder="mandatory button text" />
+            		<EntryCell x:Name="textboxIconNeg1" Label="Icon with Button(-1) (Android):" Placeholder="optional icon text" />
+            		<EntryCell x:Name="textboxTitle2" Label="Title for pair 2:" Placeholder="mandatory title" />
+            		<EntryCell x:Name="textboxButtonPos2" Label="Button result 1 for pair 2:" Placeholder="mandatory button text" />
+            		<EntryCell x:Name="textboxIconPos2" Label="Icon with Button(1) (Android):" Placeholder="optional icon text" />
+            		<EntryCell x:Name="textboxButtonNeg2" Label="Button result -1 for pair 2:" Placeholder="mandatory button text" />
+            		<EntryCell x:Name="textboxIconNeg2" Label="Icon with Button(-1) (Android):" Placeholder="optional icon text" />
+            		<ViewCell>
+            			<Button Text="Submit Interactive Pair Buttons" Clicked="buttonInteractivePairButtonsClick" />
+            		</ViewCell>
+            	</TableSection>
+            	<TableSection Title="Notify Info">
+            		<ViewCell>
+            			<Label Text="Use callback APIs to do more customisation, check Demo.cs." />
+            		</ViewCell>
+            	</TableSection>
+            </TableRoot>
+        </TableView>
 	</ContentPage.Content>
 </ContentPage>
