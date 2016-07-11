@@ -45,7 +45,8 @@ namespace XamHawkDemo
 			DependencyService.Get<IStreetHawkAnalytics>().SetAdvertisementId("BEE83220-9385-4B36-81E1-BF4305834093");
 
 			//SHService.Instance.isDefaultLocationServiceEnabled = false; TODO
-			//SHService.Instance.isDefaultNotificationServiceEnabled = false; TODO
+			//Optional: not enable notification when launch, delay ask for permission.
+			DependencyService.Get<IStreetHawkPush>().SetIsDefaultNotificationServiceEnabled(false);
 
 			// Initialize StreetHawk when App starts.
 			//Mandatory: set app key and call init.
@@ -111,39 +112,48 @@ namespace XamHawkDemo
 			//				});
 			//		});
 			//};
-			//			SHService.Instance.pushDataCallback = delegate(PushDataForApplication pushData) 
-			//			{
-			//				Device.BeginInvokeOnMainThread(() => 
-			//					{
-			//						string message = string.Format("msgid: {0}; code: {1}; action: {2};\r\ntitle: {3}\r\nmessage: {4}\r\ndata: {5}", pushData.msgID, pushData.code, pushData.action, pushData.title, pushData.message, pushData.data);
-			//						MainPage.DisplayAlert("Show custom dialog:", message, "Continue");
-			//						SHService.Instance.sendPushResult(pushData.msgID, SHPushResult.SHPushResult_Accept);
-			//					});
-			//			};
-			//			SHService.Instance.pushResultCallback = delegate(PushDataForApplication pushData, SHPushResult result) 
-			//			{
-			//				Device.BeginInvokeOnMainThread(() => 
-			//					{
-			//						string title = string.Format("Push result: {0}", result);
-			//						string message = string.Format("msgid: {0}; code: {1}; action: {2};\r\ntitle: {3}\r\nmessage: {4}\r\ndata: {5}", pushData.msgID, pushData.code, pushData.action, pushData.title, pushData.message, pushData.data);
-			//						MainPage.DisplayAlert(title, message, "OK");
-			//					});						
-			//			};
-			//SHService.Instance.shRawJsonCallback = delegate (SHJson jsonData)
-			//{
-			//	Device.BeginInvokeOnMainThread(() =>
-			//		{
-			//			string message = string.Format("title: {0}\r\nmessage: {1}\r\njson: {2}", jsonData.title, jsonData.message, jsonData.json);
-			//			MainPage.DisplayAlert("Receive json push:", message, "OK");
-			//		});
-			//};
-			//SHService.Instance.registerNonSHPushPayloadObserver = delegate (string payload)
-			//{
-			//	Device.BeginInvokeOnMainThread(() =>
-			//		{
-			//			MainPage.DisplayAlert("Receive none StreetHawk push:", payload, "OK");
-			//		});
-			//};
+
+			//Optional: Callback when receive push notification payload.
+			//DependencyService.Get<IStreetHawkPush>().OnReceivePushData(delegate (PushDataForApplication pushData)
+			//		   {
+			//			   Device.BeginInvokeOnMainThread(() =>
+			//				   {
+			//					   string message = string.Format("msgid: {0}; code: {1}; action: {2};\r\ntitle: {3}\r\nmessage: {4}\r\ndata: {5}", pushData.msgID, pushData.code, pushData.action, pushData.title, pushData.message, pushData.data);
+			//					   MainPage.DisplayAlert("Show custom dialog:", message, "Continue");
+			//						//Mandatory: Send push result.
+			//						DependencyService.Get<IStreetHawkPush>().SendPushResult(pushData.msgID, SHPushResult.SHPushResult_Accept);
+			//				   });
+			//		   });
+
+			//Optional: Callback when decide push result.
+			//DependencyService.Get<IStreetHawkPush>().OnReceiveResult(delegate (PushDataForApplication pushData, SHPushResult result)
+			//		   {
+			//			   Device.BeginInvokeOnMainThread(() =>
+			//				   {
+			//					   string title = string.Format("Push result: {0}", result);
+			//					   string message = string.Format("msgid: {0}; code: {1}; action: {2};\r\ntitle: {3}\r\nmessage: {4}\r\ndata: {5}", pushData.msgID, pushData.code, pushData.action, pushData.title, pushData.message, pushData.data);
+			//					   MainPage.DisplayAlert(title, message, "OK");
+			//				   });
+			//		   });
+
+			//Optional: Callback when receive json push.
+			DependencyService.Get<IStreetHawkPush>().RegisterForRawJSON( delegate (string title, string message, string JSON)
+			{
+				Device.BeginInvokeOnMainThread(() =>
+					{
+						string msg = string.Format("title: {0}\r\nmessage: {1}\r\njson: {2}", title, message, JSON);
+						MainPage.DisplayAlert("Receive json push:", msg, "OK");
+					});
+			});
+
+			//Optional: Callback when none 
+			DependencyService.Get<IStreetHawkPush>().OnReceiveNonSHPushPayload( delegate (string payload)
+			{
+				Device.BeginInvokeOnMainThread(() =>
+					{
+						MainPage.DisplayAlert("Receive none StreetHawk push:", payload, "OK");
+					});
+			});
 		}
 
 		protected override void OnSleep()
