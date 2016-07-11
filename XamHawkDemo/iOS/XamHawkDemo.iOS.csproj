@@ -29,6 +29,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
+    <CodesignProvision>9e3428e6-ba2e-4ee2-b013-862421231ae8</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <Optimize>true</Optimize>
@@ -84,7 +85,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>31848444-f515-4822-9298-5759dc8f6560</CodesignProvision>
+    <CodesignProvision>9e3428e6-ba2e-4ee2-b013-862421231ae8</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
