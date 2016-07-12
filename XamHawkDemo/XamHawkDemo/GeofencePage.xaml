@@ -1,5 +1,31 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamHawkDemo.GeofencePage">
 	<ContentPage.Content>
+		<TableView>
+            <TableRoot>
+            	<TableSection Title="Delay Location Permission (iOS Specific)">            		
+            		<ViewCell>
+            			<Button x:Name="buttonEnableService" Text="Unknown" Clicked="buttonEnableServiceClick" />
+            		</ViewCell>
+            	</TableSection>
+            	<TableSection Title="Start/Stop (Android Specific)">            		
+            		<ViewCell>
+            			<Button Text="Start Monitoring" Clicked="buttonStartReportClick" />
+            		</ViewCell>
+            		<ViewCell>
+            			<Button Text="Stop Monitoring" Clicked="buttonStopReportClick" />
+            		</ViewCell>
+            		<EntryCell x:Name="textboxPermission" Label="Permission Message:" Placeholder="request permission" />
+            		<ViewCell>
+            			<Button Text="Start with Permission Dialog" Clicked="buttonPermissionClick" />
+            		</ViewCell>
+            	</TableSection>
+            	<TableSection Title="Notify Info">
+            		<ViewCell>
+            			<Label Text="Use API notifyGeofenceEventCallback to get notified when enter/exit geofence." />
+            		</ViewCell>
+            	</TableSection>
+            </TableRoot>
+        </TableView>
 	</ContentPage.Content>
 </ContentPage>

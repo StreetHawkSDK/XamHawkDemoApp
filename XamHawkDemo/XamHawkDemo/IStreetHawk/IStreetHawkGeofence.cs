@@ -1,49 +1,91 @@
 ﻿using System;
-namespace XamHawkDemo
+
+namespace StreetHawkCrossplatform
 {
-	public delegate void RegisterGeofenceEnterCallback();
-	public delegate void RegisterGeofenceExitCallback();
+	/// <summary>
+	/// Callback when enter/exit server monitoring geofence.
+	/// </summary>
+	public delegate void RegisterForGeofenceCallback(SHGeofenceObj geofence);
+
 	public interface IStreetHawkGeofence
 	{
 		/// <summary>
-		/// Registers for geofence enter.
+		/// Callback when enter/exit server monitoring geofence.
 		/// </summary>
-		/// <returns>The for geofence enter.</returns>
-		/// <param name="cb">Cb.</param>
-		void RegisterForGeofenceEnter(RegisterGeofenceEnterCallback cb);
+		/// <param name="cb">The geofence enter or exit.</param>
+		void RegisterForGeofenceStatus(RegisterForGeofenceCallback cb);
+
+		/*iOS only functions*/
 
 		/// <summary>
-		/// Registers for geofence exit.
+		/// Set default location service enabled or not.
 		/// </summary>
-		/// <returns>The for geofence exit.</returns>
-		/// <param name="cb">Cb.</param>
-		void RegisterForGeofenceExit(RegisterGeofenceExitCallback cb);
+		/// <param name="isEnable">Flag for is enabled or not.</param>
+		void SetIsDefaultLocationServiceEnabled(bool isEnable);
 
 		/// <summary>
-		/// Stops the monitoring.
+		/// Get default location service enabled or not.
 		/// </summary>
-		/// <returns>The monitoring.</returns>
-		void StopGeofenceMonitoring();
+		/// <return>Flag for is enabled or not.</return>
+		bool GetIsDefaultLocationServiceEnabled();
+
+		/// <summary>
+		/// Set current location service enabled or not.
+		/// </summary>
+		/// <param name="isEnable">Flag for is enabled or not.</param>
+		void SetIsLocationServiceEnabled(bool isEnable);
+
+		/// <summary>
+		/// Get current location service enabled or not.
+		/// </summary>
+		/// <return>Flag for is enabled or not.</return>
+		bool GetIsLocationServiceEnabled();
+
+		/*Android only functions*/
 
 		/// <summary>
 		/// Starts the geofence monitoring.
 		/// </summary>
-		/// <returns>The geofence monitoring.</returns>
 		void StartGeofenceMonitoring();
 
 		/// <summary>
-		/// Gets the geofence entered list.
+		/// Stops the monitoring.
 		/// </summary>
-		/// <returns>The geofence entered list.</returns>
-		//TODO
-		//void GetGeofenceEnteredList();
+		void StopGeofenceMonitoring();
 
 		/// <summary>
-		/// Gets the geofence exit list.
+		/// Start geofence monitoring and show message.
 		/// </summary>
-		/// <returns>The geofence exit list.</returns>
-		//TODO
-		//void GetGeofenceExitList();
+		/// <param name="message">The message show in permission dialog.</param>
+		void startGeofenceWithPermissionDialog(string message);
+	}
+
+	public class SHGeofenceObj
+	{
+		/// <summary>
+		/// Latitude of this geofence.
+		/// </summary>
+		public double latitude;
+
+		/// <summary>
+		/// Longitude of this geofence.
+		/// </summary>
+		public double longitude;
+
+		/// <summary>
+		/// Radius of this geofence.
+		/// </summary>
+		public double radius;
+
+		/// <summary>
+		/// StreetHawk server unique id of this geofence.
+		/// </summary>
+		public int serverId;
+
+		/// <summary>
+		/// Whether this geofence is inside or outside.
+		/// </summary>
+		public bool isInside;
 	}
 }
 

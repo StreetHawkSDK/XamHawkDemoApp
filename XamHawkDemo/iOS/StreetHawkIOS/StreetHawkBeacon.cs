@@ -57,12 +57,12 @@ namespace StreetHawkCrossplatform
 			return 0;
 		}
 
-		public void StopBeaconMonitoring()
+		public void StartBeaconMonitoring()
 		{
 			Console.WriteLine("Android specific, not implemented in iOS.");
 		}
 
-		public void StartBeaconMonitoring()
+		public void StopBeaconMonitoring()
 		{
 			Console.WriteLine("Android specific, not implemented in iOS.");
 		}

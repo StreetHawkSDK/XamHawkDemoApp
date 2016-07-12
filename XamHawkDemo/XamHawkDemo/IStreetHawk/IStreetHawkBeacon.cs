@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace StreetHawkCrossplatform
 {
@@ -64,14 +63,14 @@ namespace StreetHawkCrossplatform
 		int ShExitBeacon(string uuid, int major, int minor);
 
 		/// <summary>
-		/// Stops the beacon monitoring.
-		/// </summary>
-		void StopBeaconMonitoring();
-
-		/// <summary>
 		/// Starts the beacon monitoring.
 		/// </summary>
 		void StartBeaconMonitoring();
+
+		/// <summary>
+		/// Stops the beacon monitoring.
+		/// </summary>
+		void StopBeaconMonitoring();
 	}
 
 	public class SHBeaconObj

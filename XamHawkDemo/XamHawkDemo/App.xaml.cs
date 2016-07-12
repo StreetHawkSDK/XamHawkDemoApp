@@ -44,8 +44,9 @@ namespace XamHawkDemo
 			//Optional: if App is allowed to get advertising identifier, pass to SDK.
 			DependencyService.Get<IStreetHawkAnalytics>().SetAdvertisementId("BEE83220-9385-4B36-81E1-BF4305834093");
 
-			//Optional: not enable location when launch, delay ask for permission.
-			DependencyService.Get<IStreetHawkBeacon>().SetIsDefaultLocationServiceEnabled(false);
+			//Optional: not enable location when launch, delay ask for permission. Below three  APIs are equivalent. 
+			//DependencyService.Get<IStreetHawkBeacon>().SetIsDefaultLocationServiceEnabled(false);
+			DependencyService.Get<IStreetHawkGeofence>().SetIsDefaultLocationServiceEnabled(false);
 
 			//Optional: not enable notification when launch, delay ask for permission.
 			DependencyService.Get<IStreetHawkPush>().SetIsDefaultNotificationServiceEnabled(false);
@@ -82,15 +83,15 @@ namespace XamHawkDemo
 					});
 			});
 
-			//TODO
-			//SHService.Instance.notifyGeofenceEventCallback = delegate (SHGeofenceObj geofence)
-			//{
-			//	Device.BeginInvokeOnMainThread(() =>
-			//		{
-			//			string message = string.Format("latitude: {0}, longitude: {1}, radius: {2}, server id: {3}, inside: {4}.", geofence.latitude, geofence.longitude, geofence.radius, geofence.serverId, geofence.isInside);
-			//			MainPage.DisplayAlert("Enter/Exit geofence: ", message, "OK");
-			//		});
-			//};
+			//Optional: Callback when enter or exit geofence.
+			DependencyService.Get<IStreetHawkGeofence>().RegisterForGeofenceStatus( delegate (SHGeofenceObj geofence)
+			{
+				Device.BeginInvokeOnMainThread(() =>
+					{
+						string message = string.Format("latitude: {0}, longitude: {1}, radius: {2}, server id: {3}, inside: {4}.", geofence.latitude, geofence.longitude, geofence.radius, geofence.serverId, geofence.isInside);
+						MainPage.DisplayAlert("Enter/Exit geofence: ", message, "OK");
+					});
+			});
 
 			//Optional: Callback when new feeds are available.
 			DependencyService.Get<IStreetHawkFeeds>().OnNewFeedAvailableCallback( delegate ()
