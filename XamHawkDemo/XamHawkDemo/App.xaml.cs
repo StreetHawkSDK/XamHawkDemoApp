@@ -87,31 +87,33 @@ namespace XamHawkDemo
 			//			MainPage.DisplayAlert("Enter/Exit geofence: ", message, "OK");
 			//		});
 			//};
-			//SHService.Instance.notifyNewFeedCallback = delegate ()
-			//{
-			//	SHService.Instance.shGetFeedDataFromServer(0, delegate (System.Collections.Generic.List<SHFeedObject> arrayFeeds, string error)
-			//		{
-			//			Device.BeginInvokeOnMainThread(() =>
-			//				{
-			//					if (error != null)
-			//					{
-			//						MainPage.DisplayAlert("New feeds available but fetch meet error:", error, "OK");
-			//					}
-			//					else
-			//					{
-			//						string feeds = string.Empty;
-			//						for (int i = 0; i < arrayFeeds.Count; i++)
-			//						{
-			//							SHFeedObject feed = arrayFeeds[i];
-			//							feeds = string.Format("Title: {0}; Message: {1}; Content: {2}. \r\n{3}", feed.title, feed.message, feed.content, feeds);
-			//							SHService.Instance.reportFeedAck(feed.feed_id);
-			//							SHService.Instance.reportFeedRead(feed.feed_id, SHFeedResult.SHFeedResult_Accept);
-			//						}
-			//						MainPage.DisplayAlert(string.Format("New feeds available and fetch {0}:", arrayFeeds.Count), feeds, "OK");
-			//					}
-			//				});
-			//		});
-			//};
+
+			//Optional: Callback when new feeds are available.
+			DependencyService.Get<IStreetHawkFeeds>().OnNewFeedAvailableCallback( delegate ()
+			{
+				DependencyService.Get<IStreetHawkFeeds>().ReadFeedData(0, delegate (System.Collections.Generic.List<SHFeedObject> arrayFeeds, string error)
+					{
+						Device.BeginInvokeOnMainThread(() =>
+							{
+								if (error != null)
+								{
+									MainPage.DisplayAlert("New feeds available but fetch meet error:", error, "OK");
+								}
+								else
+								{
+									string feeds = string.Empty;
+									for (int i = 0; i < arrayFeeds.Count; i++)
+									{
+										SHFeedObject feed = arrayFeeds[i];
+										feeds = string.Format("Title: {0}; Message: {1}; Content: {2}. \r\n{3}", feed.title, feed.message, feed.content, feeds);
+										DependencyService.Get<IStreetHawkFeeds>().SendFeedAck(feed.feed_id);
+										DependencyService.Get<IStreetHawkFeeds>().NotifyFeedResult(feed.feed_id, SHFeedResult.SHFeedResult_Accept);
+									}
+									MainPage.DisplayAlert(string.Format("New feeds available and fetch {0}:", arrayFeeds.Count), feeds, "OK");
+								}
+							});
+					});
+			});
 
 			//Optional: Callback when receive push notification payload.
 			//DependencyService.Get<IStreetHawkPush>().OnReceivePushData(delegate (PushDataForApplication pushData)
