@@ -57,7 +57,7 @@ namespace StreetHawkCrossplatform
 		/// Start geofence monitoring and show message.
 		/// </summary>
 		/// <param name="message">The message show in permission dialog.</param>
-		void startGeofenceWithPermissionDialog(string message);
+		void StartGeofenceWithPermissionDialog(string message);
 	}
 
 	public class SHGeofenceObj

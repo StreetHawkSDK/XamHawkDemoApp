@@ -156,6 +156,7 @@
     <Compile Include="StreetHawkIOS\StreetHawkFeeds.cs" />
     <Compile Include="StreetHawkIOS\StreetHawkBeacon.cs" />
     <Compile Include="StreetHawkIOS\StreetHawkGeofence.cs" />
+    <Compile Include="StreetHawkIOS\StreetHawkLocations.cs" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="streethawkanalytics">

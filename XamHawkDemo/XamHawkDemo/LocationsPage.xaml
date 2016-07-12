@@ -1,5 +1,40 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamHawkDemo.LocationsPage">
 	<ContentPage.Content>
+		<TableView>
+            <TableRoot>
+            	<TableSection Title="Delay Location Permission (iOS Specific)">            		
+            		<ViewCell>
+            			<Button x:Name="buttonEnableService" Text="Unknown" Clicked="buttonEnableServiceClick" />
+            		</ViewCell>
+            	</TableSection>
+            	<TableSection Title="Start/Stop (Android Specific)">            		
+            		<ViewCell>
+            			<Button Text="Start Reporting" Clicked="buttonStartReportClick" />
+            		</ViewCell>
+            		<ViewCell>
+            			<Button Text="Stop Reporting" Clicked="buttonStopReportClick" />
+            		</ViewCell>
+            		<EntryCell x:Name="textboxPermission" Label="Permission Message:" Placeholder="request permission" />
+            		<ViewCell>
+            			<Button Text="Start with Permission Dialog" Clicked="buttonPermissionClick" />
+            		</ViewCell>
+            	</TableSection>
+            	<TableSection Title="Limit Location Report">  
+					<ViewCell>
+            			<Button Text="Report Home/Work Location Only" Clicked="buttonHomeWorkOnlyClick" />
+            		</ViewCell>
+            	</TableSection>
+            	<TableSection Title="Location Report Frequency">            		
+            		<EntryCell x:Name="textboxFGTimeInterval" Label="FG Time Interval:" Placeholder="number as seconds" />
+            		<EntryCell x:Name="textboxFGDistance" Label="FG Distance:" Placeholder="number as meters" />
+            		<EntryCell x:Name="textboxBGTimeInterval" Label="BG Time Interval:" Placeholder="number as seconds" />
+            		<EntryCell x:Name="textboxBGDistance" Label="BG Distance:" Placeholder="number as meters" />
+            		<ViewCell>
+            			<Button Text="Set Frequency" Clicked="buttonSetFrequencyClick" />
+            		</ViewCell>
+            	</TableSection>
+            </TableRoot>
+        </TableView>
 	</ContentPage.Content>
 </ContentPage>

@@ -55,7 +55,7 @@ namespace StreetHawkCrossplatform
 			Console.WriteLine("Android specific, not implemented in iOS.");
 		}
 
-		public void startGeofenceWithPermissionDialog(string message)
+		public void StartGeofenceWithPermissionDialog(string message)
 		{
 			Console.WriteLine("Android specific, not implemented in iOS.");
 		}

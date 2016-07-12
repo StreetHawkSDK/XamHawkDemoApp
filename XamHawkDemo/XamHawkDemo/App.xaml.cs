@@ -46,7 +46,8 @@ namespace XamHawkDemo
 
 			//Optional: not enable location when launch, delay ask for permission. Below three  APIs are equivalent. 
 			//DependencyService.Get<IStreetHawkBeacon>().SetIsDefaultLocationServiceEnabled(false);
-			DependencyService.Get<IStreetHawkGeofence>().SetIsDefaultLocationServiceEnabled(false);
+			//DependencyService.Get<IStreetHawkGeofence>().SetIsDefaultLocationServiceEnabled(false);
+			DependencyService.Get<IStreetHawkLocations>().SetIsDefaultLocationServiceEnabled(false);
 
 			//Optional: not enable notification when launch, delay ask for permission.
 			DependencyService.Get<IStreetHawkPush>().SetIsDefaultNotificationServiceEnabled(false);

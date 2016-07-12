@@ -46,7 +46,7 @@ namespace XamHawkDemo
 
 		private void buttonPermissionClick(object sender, EventArgs e)
 		{
-			DependencyService.Get<IStreetHawkGeofence>().startGeofenceWithPermissionDialog(this.textboxPermission.Text);
+			DependencyService.Get<IStreetHawkGeofence>().StartGeofenceWithPermissionDialog(this.textboxPermission.Text);
 		}
 	}
 }
