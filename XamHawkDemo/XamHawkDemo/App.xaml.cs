@@ -44,7 +44,9 @@ namespace XamHawkDemo
 			//Optional: if App is allowed to get advertising identifier, pass to SDK.
 			DependencyService.Get<IStreetHawkAnalytics>().SetAdvertisementId("BEE83220-9385-4B36-81E1-BF4305834093");
 
-			//SHService.Instance.isDefaultLocationServiceEnabled = false; TODO
+			//Optional: not enable location when launch, delay ask for permission.
+			DependencyService.Get<IStreetHawkBeacon>().SetIsDefaultLocationServiceEnabled(false);
+
 			//Optional: not enable notification when launch, delay ask for permission.
 			DependencyService.Get<IStreetHawkPush>().SetIsDefaultNotificationServiceEnabled(false);
 
@@ -70,15 +72,17 @@ namespace XamHawkDemo
 					});
 			});
 
+			//Optional: Callback when enter or exit beacon.
+			DependencyService.Get<IStreetHawkBeacon>().RegisterForBeaconStatus( delegate (SHBeaconObj beacon)
+			{
+				Device.BeginInvokeOnMainThread(() =>
+					{
+						string message = string.Format("uuid: {0}, major: {1}, minor: {2}, server id: {3}, inside: {4}.", beacon.uuid, beacon.major, beacon.minor, beacon.serverId, beacon.isInside);
+						MainPage.DisplayAlert("Enter/Exit beacon: ", message, "OK");
+					});
+			});
+
 			//TODO
-			//SHService.Instance.notifyBeaconDetectCallback = delegate (SHBeaconObj beacon)
-			//{
-			//	Device.BeginInvokeOnMainThread(() =>
-			//		{
-			//			string message = string.Format("uuid: {0}, major: {1}, minor: {2}, server id: {3}, inside: {4}.", beacon.uuid, beacon.major, beacon.minor, beacon.serverId, beacon.isInside);
-			//			MainPage.DisplayAlert("Enter/Exit beacon: ", message, "OK");
-			//		});
-			//};
 			//SHService.Instance.notifyGeofenceEventCallback = delegate (SHGeofenceObj geofence)
 			//{
 			//	Device.BeginInvokeOnMainThread(() =>

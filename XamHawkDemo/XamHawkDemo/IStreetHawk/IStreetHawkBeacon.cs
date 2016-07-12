@@ -1,14 +1,48 @@
 ﻿using System;
-namespace XamHawkDemo
+using System.Collections.Generic;
+
+namespace StreetHawkCrossplatform
 {
-	public delegate void RegisterForBeaconCallback();
+	/// <summary>
+	/// Callback when enter/exit server monitoring beacon.
+	/// </summary>
+	public delegate void RegisterForBeaconCallback(SHBeaconObj beacon);
+
 	public interface IStreetHawkBeacon
 	{
 		/// <summary>
-		/// Registers for beacon status.
+		/// Callback when enter/exit server monitoring beacon.
 		/// </summary>
-		/// <returns>The for beacon status.</returns>
+		/// <param name="cb">The beacon enter or exit.</param>
 		void RegisterForBeaconStatus(RegisterForBeaconCallback cb);
+
+		/*iOS only functions*/
+
+		/// <summary>
+		/// Set default location service enabled or not.
+		/// </summary>
+		/// <param name="isEnable">Flag for is enabled or not.</param>
+		void SetIsDefaultLocationServiceEnabled(bool isEnable);
+
+		/// <summary>
+		/// Get default location service enabled or not.
+		/// </summary>
+		/// <return>Flag for is enabled or not.</return>
+		bool GetIsDefaultLocationServiceEnabled();
+
+		/// <summary>
+		/// Set current location service enabled or not.
+		/// </summary>
+		/// <param name="isEnable">Flag for is enabled or not.</param>
+		void SetIsLocationServiceEnabled(bool isEnable);
+
+		/// <summary>
+		/// Get current location service enabled or not.
+		/// </summary>
+		/// <return>Flag for is enabled or not.</return>
+		bool GetIsLocationServiceEnabled();
+
+		/*Android only functions*/
 
 		/// <summary>
 		/// Notify beacon enter if you are using a third party library to detect beacons
@@ -32,14 +66,40 @@ namespace XamHawkDemo
 		/// <summary>
 		/// Stops the beacon monitoring.
 		/// </summary>
-		/// <returns>The beacon monitoring.</returns>
 		void StopBeaconMonitoring();
 
 		/// <summary>
 		/// Starts the beacon monitoring.
 		/// </summary>
-		/// <returns>The beacon monitoring.</returns>
 		void StartBeaconMonitoring();
+	}
+
+	public class SHBeaconObj
+	{
+		/// <summary>
+		/// UUID of this beacon.
+		/// </summary>
+		public string uuid;
+
+		/// <summary>
+		/// Major of this beacon.
+		/// </summary>
+		public int major;
+
+		/// <summary>
+		/// Minor of this beacon.
+		/// </summary>
+		public int minor;
+
+		/// <summary>
+		/// StreetHawk server unique id of this beacon.
+		/// </summary>
+		public int serverId;
+
+		/// <summary>
+		/// Whether this beacon is inside or outside.
+		/// </summary>
+		public bool isInside;
 	}
 }
 
