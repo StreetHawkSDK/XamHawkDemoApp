@@ -86,6 +86,16 @@ namespace StreetHawkCrossplatform
 		/// Whether this geofence is inside or outside.
 		/// </summary>
 		public bool isInside;
+
+		/// <summary>
+		/// Title of this geofence.
+		/// </summary>
+		public string title;
+
+		/// <summary>
+		/// StreetHawk internal unique id.
+		/// </summary>
+		public string suid;
 	}
 }
 

@@ -21,6 +21,8 @@ namespace StreetHawkCrossplatform
 				   geofence.longitude = double.Parse(dictGeofence["longitude"].ToString());
 				   geofence.radius = double.Parse(dictGeofence["radius"].ToString());
 				   geofence.isInside = (int.Parse(dictGeofence["isInside"].ToString()) == 1);
+				   geofence.title = dictGeofence["title"].ToString();
+				   geofence.suid = dictGeofence["suid"].ToString();
 				   cb(geofence);
 			   };
 		}

@@ -89,7 +89,7 @@ namespace XamHawkDemo
 			{
 				Device.BeginInvokeOnMainThread(() =>
 					{
-						string message = string.Format("latitude: {0}, longitude: {1}, radius: {2}, server id: {3}, inside: {4}.", geofence.latitude, geofence.longitude, geofence.radius, geofence.serverId, geofence.isInside);
+						string message = string.Format("latitude: {0}, longitude: {1}, radius: {2}, server id: {3}, inside: {4}, title: {5}.", geofence.latitude, geofence.longitude, geofence.radius, geofence.serverId, geofence.isInside, geofence.title);
 						MainPage.DisplayAlert("Enter/Exit geofence: ", message, "OK");
 					});
 			});
