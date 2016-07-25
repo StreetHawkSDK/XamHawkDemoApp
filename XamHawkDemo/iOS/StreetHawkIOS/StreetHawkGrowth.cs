@@ -28,6 +28,11 @@ namespace StreetHawkCrossplatform
 				  }
 			  });
 		}
+
+		public void RegisterForDeepLinkURLCallback(RegisterForDeepLinkCallback cb)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
 

@@ -29,7 +29,7 @@ namespace XamHawkDemo
 			DependencyService.Get<IStreetHawkAnalytics>().SetAppKey(appkey);
 			if (!string.IsNullOrEmpty(gcm))
 			{
-				DependencyService.Get<IStreetHawkPush>().SetGcmSenderId(gcm);
+				//DependencyService.Get<IStreetHawkPush>().SetGcmSenderId(gcm);
 			}
 			this.taskCompletionSource.SetResult(true);
 			await Navigation.PopModalAsync();

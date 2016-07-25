@@ -38,7 +38,7 @@ namespace XamHawkDemo
 
 		private void buttonGCMClick(object sender, EventArgs e)
 		{
-			DependencyService.Get<IStreetHawkPush>().SetGcmSenderId(this.textboxGCM.Text);
+			//DependencyService.Get<IStreetHawkPush>().SetGcmSenderId(this.textboxGCM.Text);
 		}
 
 		private void buttonForceToBarClick(object sender, EventArgs e)

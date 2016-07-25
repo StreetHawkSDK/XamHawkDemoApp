@@ -21,7 +21,7 @@ namespace StreetHawkCrossplatform
 	/// <summary>
 	/// Callback to get a push content with its result.
 	/// </summary>
-	public delegate void RegisterForOnReceiveResultCallback(PushDataForApplication pushData, SHPushResult result);
+	public delegate void RegisterForOnReceiveResultCallback(PushDataForApplication pushData, int result);
 
 	/// <summary>
 	/// Callback to receive a none StreetHawk push payload.
@@ -77,7 +77,7 @@ namespace StreetHawkCrossplatform
 		/// </summary>
 		/// <param name="msgid">The message id.</param>
 		/// <param name="result">The push result.</param>
-		void SendPushResult(int msgid, SHPushResult result);
+		void SendPushResult(string msgid, int result);
 
 		/*iOS only functions*/
 
@@ -107,11 +107,6 @@ namespace StreetHawkCrossplatform
 
 		/*Android only functions*/
 
-		/// <summary>
-		/// Sets GCM (Google Cloud Message) id.
-		/// </summary>
-		/// <param name="gcmId">GCM sender Id.</param>
-		void SetGcmSenderId(string gcmId);
 
 		/// <summary>
 		/// Gets GCM (Google Cloud Message) id.
@@ -228,22 +223,6 @@ namespace StreetHawkCrossplatform
 		SHAction_Ghost = 15,
 		SHAction_Undefined = 16,
 		SHAction_CustomAction = 17,
-	}
-
-	public enum SHPushResult
-	{
-		/// <summary>
-		/// Result when click positive button such as "Agree", "Yes Please".
-		/// </summary>
-		SHPushResult_Accept = 1,
-		/// <summary>
-		/// Result when click neutral button such as "Later", "Not now".
-		/// </summary>
-		SHPushResult_Postpone = 0,
-		/// <summary>
-		/// Result when click negative button such as "Never", "Cancel".
-		/// </summary>
-		SHPushResult_Decline = -1,
 	}
 
 	public enum SHSlideDirection

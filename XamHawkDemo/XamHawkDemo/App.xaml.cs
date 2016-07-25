@@ -32,6 +32,7 @@ namespace XamHawkDemo
 			// Handle when your app starts
 
 			// Check whether need to setup app key and GCM.
+
 			if (string.IsNullOrEmpty(DependencyService.Get<IStreetHawkAnalytics>().GetAppKey()))
 			{
 				await SetupApp((NavigationPage)this.MainPage);
@@ -42,7 +43,7 @@ namespace XamHawkDemo
 			//Optional: iOS specific, set AppStore Id for upgrading or rating App.
 			DependencyService.Get<IStreetHawkAnalytics>().SetsiTunesId("944344799");
 			//Optional: if App is allowed to get advertising identifier, pass to SDK.
-			DependencyService.Get<IStreetHawkAnalytics>().SetAdvertisementId("BEE83220-9385-4B36-81E1-BF4305834093");
+			//DependencyService.Get<IStreetHawkAnalytics>().SetAdvertisementId("BEE83220-9385-4B36-81E1-BF4305834093");
 
 			//Optional: not enable location when launch, delay ask for permission. Below three  APIs are equivalent. 
 			//DependencyService.Get<IStreetHawkBeacon>().SetIsDefaultLocationServiceEnabled(false);
@@ -113,7 +114,7 @@ namespace XamHawkDemo
 										SHFeedObject feed = arrayFeeds[i];
 										feeds = string.Format("Title: {0}; Message: {1}; Content: {2}. \r\n{3}", feed.title, feed.message, feed.content, feeds);
 										DependencyService.Get<IStreetHawkFeeds>().SendFeedAck(feed.feed_id);
-										DependencyService.Get<IStreetHawkFeeds>().NotifyFeedResult(feed.feed_id, SHFeedResult.SHFeedResult_Accept);
+										DependencyService.Get<IStreetHawkFeeds>().NotifyFeedResult(feed.feed_id, 1);
 									}
 									MainPage.DisplayAlert(string.Format("New feeds available and fetch {0}:", arrayFeeds.Count), feeds, "OK");
 								}

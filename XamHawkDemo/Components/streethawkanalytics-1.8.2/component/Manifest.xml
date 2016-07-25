@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<component format="1" id="streethawkanalytics">
+  <name>StreetHawk Analytics</name>
+  <publisher>Streethawk</publisher>
+  <publisher-url>http://www.streethawk.com</publisher-url>
+  <version>1.8.2</version>
+  <summary>Mobile application Analytics. Automate and make analytics actionable using StreetHawk</summary>
+  <samples>
+    <sample id="SHSample.IOS">
+      <name>ios Sample.</name>
+      <summary>Demonstrates Streethawk on iOS.</summary>
+    </sample>
+    <sample id="XamHawkAnalytics">
+      <name>Android Sample.</name>
+      <summary>Demonstrates Streethawk onAndroid</summary>
+    </sample>
+  </samples>
+</component>

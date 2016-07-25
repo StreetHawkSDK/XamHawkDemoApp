@@ -21,7 +21,8 @@
 
     <uses-permission android:name="com.streethawk.xamhawkdemo.permission.C2D_MESSAGE" />
  
-	<application android:label="XamHawkDemo">
+	<application android:label="XamHawkDemo" android:icon="@drawable/icon"
+  android:theme="@style/MyTheme">
 
 		<receiver
             android:name="com.streethawk.library.push.GCMReceiver"

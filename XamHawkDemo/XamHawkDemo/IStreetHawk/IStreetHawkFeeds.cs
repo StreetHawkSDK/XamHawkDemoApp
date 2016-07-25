@@ -27,7 +27,7 @@ namespace StreetHawkCrossplatform
 		/// <returns>The feed result.</returns>
 		/// <param name="feedid">Feed id.</param>
 		/// <param name="result">Result.</param>
-		void NotifyFeedResult(int feedid, SHFeedResult result);
+		void NotifyFeedResult(int feedid, int result);
 
 		/// <summary>
 		/// Fetch feed data from StreetHawk server.
@@ -43,21 +43,20 @@ namespace StreetHawkCrossplatform
 		void OnNewFeedAvailableCallback(RegisterForNewFeedCallback cb);
 	}
 
-	public enum SHFeedResult
-	{
-		/// <summary>
-		/// Result when click positive button such as "Agree", "Yes Please".
-		/// </summary>
-		SHFeedResult_Accept = 1,
-		/// <summary>
-		/// Result when click neutral button such as "Later", "Not now".
-		/// </summary>
-		SHFeedResult_Postpone = 0,
-		/// <summary>
-		/// Result when click negative button such as "Never", "Cancel".
-		/// </summary>
-		SHFeedResult_Decline = -1,
-	}
+	/*
+	/// <summary>
+	/// Result when click positive button such as "Agree", "Yes Please".
+	/// </summary>
+	public int SHFeedResult_Accept = 1;
+	/// <summary>
+	/// Result when click neutral button such as "Later", "Not now".
+	/// </summary>
+	public int SHFeedResult_Postpone = 0;
+	/// <summary>
+	/// Result when click negative button such as "Never", "Cancel".
+	/// </summary>
+	public int SHFeedResult_Decline = -1;
+	*/
 
 	public class SHFeedObject
 	{
@@ -89,27 +88,27 @@ namespace StreetHawkCrossplatform
 		/// <summary>
 		/// A timestamp when the item activated.
 		/// </summary>
-		public DateTime activates { get; set; }
+		public string activates { get; set; }
 
 		/// <summary>
 		/// A timestamp when the item expires (it will not be visible to clients after). It's possible to be nil.
 		/// </summary>
-		public DateTime expires { get; set; }
+		public string expires { get; set; }
 
 		/// <summary>
 		/// A timestamp when the Feed item has been created.
 		/// </summary>
-		public DateTime created { get; set; }
+		public string created { get; set; }
 
 		/// <summary>
 		/// A timestamp when the Feed item was modified the last time.
 		/// </summary>
-		public DateTime modified { get; set; }
+		public string modified { get; set; }
 
 		/// <summary>
 		/// A timestamp when the Feed item was deleted.
 		/// </summary>
-		public DateTime deleted { get; set; }
+		public string deleted { get; set; }
 	}
 }
 

@@ -44,7 +44,7 @@ namespace XamHawkDemo
 									SHFeedObject feed = arrayFeeds[i];
 									feeds = string.Format("Title: {0}; Message: {1}; Content: {2}. \r\n{3}", feed.title, feed.message, feed.content, feeds);
 									DependencyService.Get<IStreetHawkFeeds>().SendFeedAck(feed.feed_id);
-									DependencyService.Get<IStreetHawkFeeds>().NotifyFeedResult(feed.feed_id, SHFeedResult.SHFeedResult_Accept);
+									DependencyService.Get<IStreetHawkFeeds>().NotifyFeedResult(feed.feed_id, 1);
 								}
 								DisplayAlert(string.Format("Fetch {0} feeds:", arrayFeeds.Count), feeds, "OK");
 							}

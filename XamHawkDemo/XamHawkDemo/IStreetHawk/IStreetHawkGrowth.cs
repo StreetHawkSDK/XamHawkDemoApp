@@ -7,6 +7,11 @@ namespace StreetHawkCrossplatform
 	/// </summary>
 	public delegate void RegisterForShareURLCallback(string url, string error);
 
+	/// <summary>
+	/// Register for deeplink url for differed deeplinking
+	/// </summary>
+	public delegate void RegisterForDeepLinkCallback(String url);
+
 	public interface IStreetHawkGrowth
 	{
 		/// <summary>
@@ -29,6 +34,10 @@ namespace StreetHawkCrossplatform
 		/// <param name="default_url">Default URL.</param>
 		/// <param name="cb">Callback for the share URL for app download.</param>
 		void GetShareUrlForAppDownload(string utm_campaign, string share_url, string utm_source, string utm_medium, string utm_term, string campaign_content, string default_url, RegisterForShareURLCallback cb);
+
+		void RegisterForDeepLinkURLCallback(RegisterForDeepLinkCallback cb);
+	
+	
 	}
 }
 
