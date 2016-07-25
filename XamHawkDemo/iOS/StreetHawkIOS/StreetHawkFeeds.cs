@@ -38,7 +38,7 @@ namespace StreetHawkCrossplatform
 							  feed.feed_id = feedObj.feed_id;
 							  feed.title = feedObj.title;
 							  feed.message = feedObj.message;
-							  //feed.campaign = feedObj.campaign; //TODO fixed in 1.8.2
+							  feed.campaign = feedObj.campaign;
 							  if (feedObj.content != null)
 							  {
 								  feed.content = feedObj.content.ToString();
