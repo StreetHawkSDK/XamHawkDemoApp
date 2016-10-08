@@ -135,7 +135,7 @@ namespace XamHawkDemo
 			//		   });
 
 			//Optional: Callback when decide push result.
-			//DependencyService.Get<IStreetHawkPush>().OnReceiveResult(delegate (PushDataForApplication pushData, SHPushResult result)
+			//DependencyService.Get<IStreetHawkPush>().OnReceiveResult(delegate (PushDataForApplication pushData, int result)
 			//		   {
 			//			   Device.BeginInvokeOnMainThread(() =>
 			//				   {
