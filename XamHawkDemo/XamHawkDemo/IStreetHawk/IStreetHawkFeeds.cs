@@ -26,7 +26,7 @@ namespace StreetHawkCrossplatform
 		/// </summary>
 		/// <returns>The feed result.</returns>
 		/// <param name="feedid">Feed id.</param>
-		/// <param name="result">Result.</param>
+		/// <param name="result">Result. 1 for accepted, 0 for postpone, -1 for declined.</param>
 		void NotifyFeedResult(int feedid, int result);
 
 		/// <summary>
@@ -42,21 +42,6 @@ namespace StreetHawkCrossplatform
 		/// <param name="cb">Callback for new feeds available.</param>
 		void OnNewFeedAvailableCallback(RegisterForNewFeedCallback cb);
 	}
-
-	/*
-	/// <summary>
-	/// Result when click positive button such as "Agree", "Yes Please".
-	/// </summary>
-	public int SHFeedResult_Accept = 1;
-	/// <summary>
-	/// Result when click neutral button such as "Later", "Not now".
-	/// </summary>
-	public int SHFeedResult_Postpone = 0;
-	/// <summary>
-	/// Result when click negative button such as "Never", "Cancel".
-	/// </summary>
-	public int SHFeedResult_Decline = -1;
-	*/
 
 	public class SHFeedObject
 	{

@@ -14,12 +14,12 @@ namespace StreetHawkCrossplatform
 	{
 		public void SendFeedAck(int feedid)
 		{
-			SHFeed.instance().sendFeedAck(feedid);
+			SHFeed.instance().sendFeedAck(feedid.ToString());
 		}
 
-		public void NotifyFeedResult(int feedid, SHFeedResult result)
+		public void NotifyFeedResult(int feedid, int result)
 		{
-			SHFeed.instance().sendLogForFeed(feedid, (StreethawkIOS.Feed.SHFeedResult)result);
+			SHFeed.instance().sendLogForFeed(feedid.ToString(), (StreethawkIOS.Feed.SHFeedResult)result);
 		}
 
 		public void ReadFeedData(int offset, RegisterForFeedCallback cb)
@@ -35,7 +35,7 @@ namespace StreetHawkCrossplatform
 						  {
 							  StreethawkIOS.Feed.SHFeedObject feedObj = arrayFeeds.GetItem<StreethawkIOS.Feed.SHFeedObject>(i);
 							  SHFeedObject feed = new SHFeedObject();
-							  feed.feed_id = feedObj.feed_id;
+							  feed.feed_id = int.Parse(feedObj.feed_id);
 							  feed.title = feedObj.title;
 							  feed.message = feedObj.message;
 							  feed.campaign = feedObj.campaign;
@@ -65,16 +65,16 @@ namespace StreetHawkCrossplatform
 			SHFeed.instance().newFeedHandler = new StreethawkIOS.Feed.SHNewFeedsHandler(cb);
 		}
 
-		private DateTime convertDatetime(NSDate datetime)
+		private string convertDatetime(NSDate datetime)
 		{
 			if (datetime == null)
 			{
-				return DateTime.MinValue;
+				return string.Empty;
 			}
 			else
 			{
 				DateTime reference = new DateTime(2001, 1, 1, 0, 0, 0);
-				return reference.AddSeconds(datetime.SecondsSinceReferenceDate);
+				return reference.AddSeconds(datetime.SecondsSinceReferenceDate).ToString("yyyy-MM-dd HH:mm:ss");
 			}
 		}
 	}
