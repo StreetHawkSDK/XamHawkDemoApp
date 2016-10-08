@@ -92,27 +92,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="Streethawk.IOS.Core-Unified">
-      <HintPath>..\Components\streethawkanalytics-1.8.2\lib\ios-unified\Streethawk.IOS.Core-Unified.dll</HintPath>
-    </Reference>
-    <Reference Include="Streethawk.IOS.Beacon-Unified">
-      <HintPath>..\Components\streethawkbeacon-1.8.2\lib\ios-unified\Streethawk.IOS.Beacon-Unified.dll</HintPath>
-    </Reference>
-    <Reference Include="Streethawk.IOS.Feed-Unified">
-      <HintPath>..\Components\streethawkfeeds-1.8.2\lib\ios-unified\Streethawk.IOS.Feed-Unified.dll</HintPath>
-    </Reference>
-    <Reference Include="Streethawk.IOS.Geofence-Unified">
-      <HintPath>..\Components\streethawkgeofence-1.8.2\lib\ios-unified\Streethawk.IOS.Geofence-Unified.dll</HintPath>
-    </Reference>
-    <Reference Include="Streethawk.IOS.Growth-Unified">
-      <HintPath>..\Components\streethawkgrowth-1.8.2\lib\ios-unified\Streethawk.IOS.Growth-Unified.dll</HintPath>
-    </Reference>
-    <Reference Include="Streethawk.IOS.Push-Unified">
-      <HintPath>..\Components\streethawkpush-1.8.2\lib\ios-unified\Streethawk.IOS.Push-Unified.dll</HintPath>
-    </Reference>
-    <Reference Include="Streethawk.IOS.Location-Unified">
-      <HintPath>..\Components\streethawklocations-1.8.2\lib\ios-unified\Streethawk.IOS.Location-Unified.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Forms.Core">
       <HintPath>..\packages\Xamarin.Forms.2.3.2.127\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
@@ -124,6 +103,27 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.2.3.2.127\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Streethawk.IOS.Core-Unified">
+      <HintPath>..\Components\streethawkanalytics-1.8.5\lib\ios-unified\Streethawk.IOS.Core-Unified.dll</HintPath>
+    </Reference>
+    <Reference Include="Streethawk.IOS.Beacon-Unified">
+      <HintPath>..\Components\streethawkbeacon-1.8.5\lib\ios-unified\Streethawk.IOS.Beacon-Unified.dll</HintPath>
+    </Reference>
+    <Reference Include="Streethawk.IOS.Feed-Unified">
+      <HintPath>..\Components\streethawkfeeds-1.8.5\lib\ios-unified\Streethawk.IOS.Feed-Unified.dll</HintPath>
+    </Reference>
+    <Reference Include="Streethawk.IOS.Geofence-Unified">
+      <HintPath>..\Components\streethawkgeofence-1.8.5\lib\ios-unified\Streethawk.IOS.Geofence-Unified.dll</HintPath>
+    </Reference>
+    <Reference Include="Streethawk.IOS.Push-Unified">
+      <HintPath>..\Components\streethawkpush-1.8.5\lib\ios-unified\Streethawk.IOS.Push-Unified.dll</HintPath>
+    </Reference>
+    <Reference Include="Streethawk.IOS.Location-Unified">
+      <HintPath>..\Components\streethawklocations-1.8.5\lib\ios-unified\Streethawk.IOS.Location-Unified.dll</HintPath>
+    </Reference>
+    <Reference Include="Streethawk.IOS.Growth-Unified">
+      <HintPath>..\Components\streethawkgrowth-1.8.5\lib\ios-unified\Streethawk.IOS.Growth-Unified.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -175,31 +175,31 @@
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="streethawkanalytics">
-      <Version>1.8.2</Version>
+      <Version>1.8.5</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
     <XamarinComponentReference Include="streethawkbeacon">
-      <Version>1.8.2</Version>
+      <Version>1.8.5</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
     <XamarinComponentReference Include="streethawkfeeds">
-      <Version>1.8.2</Version>
+      <Version>1.8.5</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
     <XamarinComponentReference Include="streethawkgeofence">
-      <Version>1.8.2</Version>
-      <Visible>False</Visible>
-    </XamarinComponentReference>
-    <XamarinComponentReference Include="streethawkgrowth">
-      <Version>1.8.2</Version>
+      <Version>1.8.5</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
     <XamarinComponentReference Include="streethawkpush">
-      <Version>1.8.2</Version>
+      <Version>1.8.5</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
     <XamarinComponentReference Include="streethawklocations">
-      <Version>1.8.2</Version>
+      <Version>1.8.5</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="streethawkgrowth">
+      <Version>1.8.5</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
