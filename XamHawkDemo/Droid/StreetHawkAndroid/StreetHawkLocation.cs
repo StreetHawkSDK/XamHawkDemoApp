@@ -67,5 +67,15 @@ namespace XamHawkDemo.Droid
 		{
 			SHLocation.GetInstance(mApplication.ApplicationContext).UpdateLocationMonitoringParams(UPDATE_INTERVAL_FG, UPDATE_DISTANCE_FG,UPDATE_INTERVAL_BG,UPDATE_DISTANCE_BG);
 		}
+		public IntPtr Handle
+		{
+			get;
+			set;
+		}
+
+		public void Dispose()
+		{
+
+		}
 	}
 }

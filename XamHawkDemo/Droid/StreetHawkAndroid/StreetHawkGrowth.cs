@@ -23,15 +23,13 @@ namespace XamHawkDemo.Droid
 
 		public IntPtr Handle
 		{
-			get
-			{
-				throw new NotImplementedException();
-			}
+			get;
+			set;
 		}
 
 		public void Dispose()
 		{
-			throw new NotImplementedException();
+			
 		}
 
 		public void GetShareUrlForAppDownload(string utm_campaign, string share_url, string default_url)

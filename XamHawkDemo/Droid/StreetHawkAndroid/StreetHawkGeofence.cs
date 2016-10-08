@@ -39,10 +39,8 @@ namespace XamHawkDemo.Droid
 
 		public IntPtr Handle
 		{
-			get
-			{
-				throw new NotImplementedException();
-			}
+			get;
+			set;
 		}
 
 		public void RegisterForGeofenceStatus(RegisterForGeofenceCallback cb)
@@ -91,7 +89,7 @@ namespace XamHawkDemo.Droid
 
 		public void Dispose()
 		{
-			throw new NotImplementedException();
+			
 		}
 	}
 }
