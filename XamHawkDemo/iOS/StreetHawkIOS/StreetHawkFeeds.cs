@@ -24,30 +24,57 @@ namespace StreetHawkCrossplatform
 
 		public void ReadFeedData(int offset, RegisterForFeedCallback cb)
 		{
-			SHFeed.instance().feed(offset, delegate (NSArray arrayFeeds, NSError error)
+			SHFeed.instance().feed(offset, delegate (NSArray arrayDicts, NSError error)
 			  {
 				  if (cb != null)
 				  {
 					  if (error == null)
 					  {
 						  List<SHFeedObject> ret = new List<SHFeedObject>();
-						  for (nuint i = 0; i < arrayFeeds.Count; i++)
+						  for (nuint i = 0; i < arrayDicts.Count; i++)
 						  {
-							  StreethawkIOS.Feed.SHFeedObject feedObj = arrayFeeds.GetItem<StreethawkIOS.Feed.SHFeedObject>(i);
+							  NSDictionary feedDict = arrayDicts.GetItem<NSDictionary>(i);
 							  SHFeedObject feed = new SHFeedObject();
-							  feed.feed_id = int.Parse(feedObj.feed_id);
-							  feed.title = feedObj.title;
-							  feed.message = feedObj.message;
-							  feed.campaign = feedObj.campaign;
-							  if (feedObj.content != null)
+							  if (feedDict["feed_id"] != null)
 							  {
-								  feed.content = feedObj.content.ToString();
+								  feed.feed_id = int.Parse(feedDict["feed_id"].ToString());
 							  }
-							  feed.activates = convertDatetime(feedObj.activates);
-							  feed.expires = convertDatetime(feedObj.expires);
-							  feed.created = convertDatetime(feedObj.created);
-							  feed.modified = convertDatetime(feedObj.modified);
-							  feed.deleted = convertDatetime(feedObj.deleted);
+							  if (feedDict["title"] != null)
+							  {
+								  feed.title = feedDict["title"].ToString();
+							  }
+							  if (feedDict["message"] != null)
+							  {
+								  feed.message = feedDict["message"].ToString();
+							  }
+							  if (feedDict["campaign"] != null)
+							  {
+								  feed.campaign = feedDict["campaign"].ToString();
+							  }
+							  if (feedDict["content"] != null)
+							  {
+								  feed.content = feedDict["content"].ToString();
+							  }
+							  if (feedDict["activates"] != null)
+							  {
+								  feed.activates = feedDict["activates"].ToString();
+							  }
+							  if (feedDict["expires"] != null)
+							  {
+								  feed.expires = feedDict["expires"].ToString();
+							  }
+							  if (feedDict["created"] != null)
+							  {
+								  feed.created = feedDict["created"].ToString();
+							  }
+							  if (feedDict["modified"] != null)
+							  {
+								  feed.modified = feedDict["modified"].ToString();
+							  }
+							  if (feedDict["deleted"] != null)
+							  {
+								  feed.deleted = feedDict["deleted"].ToString();
+							  }
 							  ret.Add(feed);
 						  }
 						  cb(ret, null);
@@ -63,19 +90,6 @@ namespace StreetHawkCrossplatform
 		public void OnNewFeedAvailableCallback(RegisterForNewFeedCallback cb)
 		{
 			SHFeed.instance().newFeedHandler = new StreethawkIOS.Feed.SHNewFeedsHandler(cb);
-		}
-
-		private string convertDatetime(NSDate datetime)
-		{
-			if (datetime == null)
-			{
-				return string.Empty;
-			}
-			else
-			{
-				DateTime reference = new DateTime(2001, 1, 1, 0, 0, 0);
-				return reference.AddSeconds(datetime.SecondsSinceReferenceDate).ToString("yyyy-MM-dd HH:mm:ss");
-			}
 		}
 	}
 }
