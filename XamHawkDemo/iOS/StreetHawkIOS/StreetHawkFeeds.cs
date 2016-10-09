@@ -22,6 +22,20 @@ namespace StreetHawkCrossplatform
 			SHFeed.instance().sendLogForFeed(feedid.ToString(), (StreethawkIOS.Feed.SHFeedResult)result);
 		}
 
+		public void NotifyFeedResult(int feedid, string stepid, string feedresult, bool feedDelete, bool completed)
+		{
+			StreethawkIOS.Feed.SHFeedResult result = SHFeedResult.SHResult_Accept;
+			if (feedresult.Equals("postponed"))
+			{
+				result = SHFeedResult.SHResult_Postpone;
+			}
+			else if (feedresult.Equals("rejected"))
+			{
+				result = SHFeedResult.SHResult_Decline;
+			}
+			SHFeed.instance().notifyFeedResult(feedid.ToString(), result, stepid, feedDelete, completed);
+		}
+
 		public void ReadFeedData(int offset, RegisterForFeedCallback cb)
 		{
 			SHFeed.instance().feed(offset, delegate (NSArray arrayDicts, NSError error)

@@ -42,9 +42,10 @@ namespace XamHawkDemo
 								for (int i = 0; i < arrayFeeds.Count; i++)
 								{
 									SHFeedObject feed = arrayFeeds[i];
-							feeds = string.Format("Title: {0}; Message: {1}; Campaign: {2}; Content: {3}. \r\n{4}", feed.title, feed.message, feed.campaign, feed.content, feeds);
+									feeds = string.Format("Title: {0}; Message: {1}; Campaign: {2}; Content: {3}. \r\n{4}", feed.title, feed.message, feed.campaign, feed.content, feeds);
 									DependencyService.Get<IStreetHawkFeeds>().SendFeedAck(feed.feed_id);
 									DependencyService.Get<IStreetHawkFeeds>().NotifyFeedResult(feed.feed_id, 1);
+									DependencyService.Get<IStreetHawkFeeds>().NotifyFeedResult(feed.feed_id, "", "accepted", false, false);
 								}
 								DisplayAlert(string.Format("Fetch {0} feeds:", arrayFeeds.Count), feeds, "OK");
 							}
