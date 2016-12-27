@@ -59,5 +59,7 @@
 	<array>
 		<string>fetch</string>
 	</array>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>test</string>
 </dict>
 </plist>
