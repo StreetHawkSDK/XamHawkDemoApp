@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace StreetHawkCrossplatform
 {
 	/// <summary>
-	/// Callback to receive raw json push.
+	/// Callback to receive raw json push. "JSON" is json formatted string such as {"key": "value"}.
 	/// </summary>
 	public delegate void RegisterForShReceivedRawJSONCallback(string title, string message, string JSON);
 
