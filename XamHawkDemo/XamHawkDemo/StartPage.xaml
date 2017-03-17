@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamHawkDemo.StartPage">
 	<ContentPage.Content>
 		<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
             <StackLayout Orientation="Horizontal">
                 <Label Text="App Key:" HorizontalOptions="Start" />
-                <Entry x:Name="textboxAppKey" Text="XamHawk" HorizontalOptions="FillAndExpand" />
+                <Entry x:Name="textboxAppKey" Text="XamHawk_bison" HorizontalOptions="FillAndExpand" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="GCM (Android):" HorizontalOptions="Start" />
