@@ -164,7 +164,7 @@ namespace XamHawkDemo.Droid
 				appData.data = pushData.Data;
 				appData.action = (SHAction)pushData.Action;
 				appData.isAppOnForeground = false;
-				appData.msgID = Int32.Parse(pushData.MsgId);
+				appData.msgID = pushData.MsgId;
 				appData.portion = pushData.Portion;
 				appData.orientation = (SHSlideDirection)pushData.Orientation;
 				appData.speed = pushData.Speed;
@@ -185,7 +185,7 @@ namespace XamHawkDemo.Droid
 				appData.data = pushData.Data;
 				appData.action = (SHAction)pushData.Action;
 				appData.isAppOnForeground = false;
-				appData.msgID = Int32.Parse(pushData.MsgId);
+				appData.msgID = pushData.MsgId;
 				appData.portion = pushData.Portion;
 				appData.orientation = (SHSlideDirection)pushData.Orientation;
 				appData.speed = pushData.Speed;
