@@ -225,7 +225,7 @@ namespace StreetHawkCrossplatform
 			}
 		}
 
-		public override void shRawJsonCallbackWithTitle(string title, string message, NSDictionary json)
+		/*public override void shRawJsonCallbackWithTitle(string title, string message, NSDictionary json)
 		{
 			if (_shRawJsonCallback != null)
 			{
@@ -234,7 +234,7 @@ namespace StreetHawkCrossplatform
 				NSString jsonStr = new NSString(data, NSStringEncoding.UTF8);
 				_shRawJsonCallback(title, message, jsonStr.ToString());
 			}
-		}
+		}*/
 	}
 }
 

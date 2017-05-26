@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Android.Util;
 
 using XamHawkDemo.Droid;
+using Android.Runtime;
 
 [assembly: Xamarin.Forms.Dependency(typeof(StreetHawkFeeds))]
 namespace XamHawkDemo.Droid
@@ -44,12 +45,12 @@ namespace XamHawkDemo.Droid
 			mApplication = application;
 		}
 
-		public void NotifyFeedResult(int feedid, int result)
+		public void NotifyFeedResult(string feedid, int result)
 		{
 			SHFeedItem.GetInstance(mApplication.ApplicationContext).NotifyFeedResult(feedid,result);
 		}
 
-		public void NotifyFeedResult(int feedid, string stepid, string feedresult, bool feedDelete, bool completed)
+		public void NotifyFeedResult(string feedid, string stepid, string feedresult, bool feedDelete, bool completed)
 		{
 			//TODO: not implement yet
 		}
@@ -62,7 +63,9 @@ namespace XamHawkDemo.Droid
 			set;
 		}
 
-		public void OnNewFeedAvailableCallback(RegisterForNewFeedCallback cb)
+        IntPtr IJavaObject.Handle => throw new NotImplementedException();
+
+        public void OnNewFeedAvailableCallback(RegisterForNewFeedCallback cb)
 		{
 			//TODO : implement broadcast receiver in native to receive feed notification and notifys server
 			Log.Error("StreetHawk", "OnNewFeedAvailableCallback is not available for this relase");
@@ -76,7 +79,7 @@ namespace XamHawkDemo.Droid
 			SHFeedItem.GetInstance(mApplication.ApplicationContext).ReadFeedData(offset);
 		}
 
-		public void SendFeedAck(int feedid)
+		public void SendFeedAck(string feedid)
 		{
 			SHFeedItem.GetInstance(mApplication.ApplicationContext).SendFeedAck(feedid);
 		}
@@ -93,7 +96,7 @@ namespace XamHawkDemo.Droid
 						{
 							JSONObject jsonObj = feeds.GetJSONObject(i);
 							SHFeedObject obj = new SHFeedObject();
-							obj.feed_id = jsonObj.GetInt(FEED_ID);
+							obj.feed_id = jsonObj.GetString(FEED_ID);
 							obj.title = jsonObj.GetString(TITLE);
 							obj.message = jsonObj.GetString(MESSAGE);
 							obj.campaign = jsonObj.GetString(CAMPAIGN);
@@ -119,5 +122,20 @@ namespace XamHawkDemo.Droid
 		{
 			
 		}
-	}
+
+        void ISHFeedItemObserver.SHNotifyNewFeedItem()
+        {
+            throw new NotImplementedException();
+        }
+
+        void ISHFeedItemObserver.ShFeedReceived(JSONArray p0)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IDisposable.Dispose()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
